@@ -133,7 +133,10 @@ def follow_index(request):
 def profile_follow(request, username):
     user = get_object_or_404(User, username=request.user)
     author = get_object_or_404(User, username=username)
-    check_already_follow = Follow.objects.filter(user=user, author=author).count()
+    check_already_follow = Follow.objects.filter(
+        user=user,
+        author=author
+    ).count()
     if author == request.user or check_already_follow == 1:
         return redirect('posts:profile', username=username)
     Follow.objects.create(user=request.user, author=author)
