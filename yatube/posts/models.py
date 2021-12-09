@@ -21,6 +21,12 @@ class Post(models.Model):
         related_name='posts_group',
         verbose_name='Сообщество'
     )
+    image = models.ImageField(
+        'Картинка',
+        upload_to='posts/',
+        blank=True,
+        null=True,
+    )
 
     class Meta:
         verbose_name = 'Пост'
@@ -43,3 +49,51 @@ class Group(models.Model):
 
     def __str__(self) -> str:
         return self.title
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(
+        Post,
+        on_delete=models.CASCADE,
+        null=True,
+        related_name='comments',
+    )
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        null=True,
+        related_name='comments',
+    )
+    text = models.TextField('Текст комментария')
+    created = models.DateTimeField('Дата публикации', auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
+        ordering = ['created']
+
+    def __str__(self):
+        return self.text
+
+
+class Follow(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        null=True,
+        related_name="follower",
+    )
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        null=True,
+        related_name="following",
+    )
+
+    class Meta:
+        verbose_name = "Подписка"
+        verbose_name_plural = "Подписки"
+        ordering = ["author"]
+
+    def __str__(self):
+        return f"{self.user} подписан на автора {self.author}"

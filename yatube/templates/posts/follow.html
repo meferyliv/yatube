@@ -1,9 +1,7 @@
 {% extends "base.html" %}
 {% load thumbnail %}
-{% load cache %}
-{% block title%}Последние обновления на сайте{% endblock %}
+{% block title%}Последние обновления любимых авторов{% endblock %}
 {% block content %}
-{% cache 20 index_page request.user with page_obj %}
 <main>
   <div class="container py-5">
     {% include 'posts/includes/switcher.html' %}
@@ -34,5 +32,4 @@
     {% include "posts/includes/paginator.html" %}
   </div>
 </main>
-{% endcache %}
 {% endblock %}

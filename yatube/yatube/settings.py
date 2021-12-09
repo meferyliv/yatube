@@ -2,15 +2,19 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+CSRF_FAILURE_VIEW = 'core.views.csrf_failure'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 SECRET_KEY = 'b2q0uh5n5nx0twt8$f=a(*(^ryng4+s9(e@)t1l1l&0p)!u$8$'
 
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-    "testserver",
+    'localhost',
+    '127.0.0.1',
+    '[::1]',
+    'testserver',
 ]
 
 INSTALLED_APPS = [
@@ -24,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
@@ -78,6 +83,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
 
 LANGUAGE_CODE = 'ru'
 
