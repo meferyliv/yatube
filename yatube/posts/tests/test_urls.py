@@ -3,10 +3,10 @@ from http import HTTPStatus
 from django.test import Client, TestCase
 from django.urls import reverse
 
-from posts.constants import (REVERSE_CREATE_POST_URL, REVERSE_GROUP_URL,
-                             REVERSE_INDEX_URL, REVERSE_PROFILE_URL,
-                             TEST_GROUP_SLUG, TEST_GROUP_TITLE, TEST_POST_TEXT,
-                             TEST_USERNAME, UNEXISTING_PAGE_URL)
+from .constants import (REVERSE_CREATE_POST_URL, REVERSE_GROUP_URL,
+                        REVERSE_INDEX_URL, REVERSE_PROFILE_URL,
+                        TEST_GROUP_SLUG, TEST_GROUP_TITLE, TEST_POST_TEXT,
+                        TEST_USERNAME, UNEXISTING_PAGE_URL)
 from posts.models import Group, Post, User
 
 

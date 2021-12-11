@@ -1,6 +1,6 @@
+from about.tests.constants import (REVERSE_ABOUT_AUTHOR_URL,
+                                   REVERSE_ABOUT_TECH_URL)
 from django.test import Client, TestCase
-
-from about.constants import REVERSE_ABOUT_AUTHOR_URL, REVERSE_ABOUT_TECH_URL
 
 
 class AboutURLTests(TestCase):

@@ -1,7 +1,7 @@
 from http import HTTPStatus
 
 from django.test import TestCase
-from posts.constants import UNEXISTING_PAGE_URL
+from posts.tests.constants import UNEXISTING_PAGE_URL
 
 
 class ViewTestClass(TestCase):

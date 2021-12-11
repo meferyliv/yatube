@@ -16,3 +16,4 @@ UNEXISTING_PAGE_URL = '/unexisting_page/'
 TEST_IMAGE = 'posts/1234.jpg'
 USER_AUTHOR = 'Автор'
 REVERSE_FOLLOW_INDEX = reverse('posts:follow_index')
+TEST_COMMENT_TEXT = 'Test comment text'

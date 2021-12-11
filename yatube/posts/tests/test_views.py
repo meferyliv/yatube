@@ -5,11 +5,11 @@ from django.core.cache import cache
 from django.test import Client, TestCase
 from django.urls import reverse
 
-from posts.constants import (REVERSE_CREATE_POST_URL, REVERSE_FOLLOW_INDEX,
-                             REVERSE_GROUP_URL, REVERSE_INDEX_URL,
-                             REVERSE_PROFILE_URL, TEST_GROUP_SLUG,
-                             TEST_GROUP_TITLE, TEST_IMAGE, TEST_POST_TEXT,
-                             TEST_USERNAME, USER_AUTHOR)
+from .constants import (REVERSE_CREATE_POST_URL, REVERSE_FOLLOW_INDEX,
+                        REVERSE_GROUP_URL, REVERSE_INDEX_URL,
+                        REVERSE_PROFILE_URL, TEST_GROUP_SLUG,
+                        TEST_GROUP_TITLE, TEST_IMAGE, TEST_POST_TEXT,
+                        TEST_USERNAME, USER_AUTHOR)
 from posts.models import Follow, Group, Post, User
 from yatube.settings import PAG_VALUE
 

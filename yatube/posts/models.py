@@ -45,7 +45,7 @@ class Group(models.Model):
     class Meta:
         verbose_name = 'Сообщество'
         verbose_name_plural = 'Сообщества'
-        ordering = ['-title']
+        ordering = ('-title',)
 
     def __str__(self) -> str:
         return self.title
@@ -70,7 +70,7 @@ class Comment(models.Model):
     class Meta:
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
-        ordering = ['created']
+        ordering = ('created',)
 
     def __str__(self):
         return self.text
@@ -93,7 +93,12 @@ class Follow(models.Model):
     class Meta:
         verbose_name = "Подписка"
         verbose_name_plural = "Подписки"
-        ordering = ["author"]
+        ordering = ("author",)
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'author'], name='unique_follow'
+            ),
+        ]
 
     def __str__(self):
         return f"{self.user} подписан на автора {self.author}"

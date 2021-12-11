@@ -7,9 +7,9 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import Client, TestCase, override_settings
 from django.urls import reverse
 
-from posts.constants import (REVERSE_CREATE_POST_URL, REVERSE_PROFILE_URL,
-                             TEST_GROUP_SLUG, TEST_GROUP_TITLE, TEST_POST_TEXT,
-                             TEST_USERNAME)
+from .constants import (REVERSE_CREATE_POST_URL, REVERSE_PROFILE_URL,
+                        TEST_GROUP_SLUG, TEST_GROUP_TITLE, TEST_POST_TEXT,
+                        TEST_USERNAME)
 from posts.forms import CommentForm, PostForm
 from posts.models import Comment, Group, Post, User
 
