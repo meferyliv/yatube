@@ -1,5 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.db.models.expressions import F
+from django.db.models.query_utils import Q
 
 User = get_user_model()
 
@@ -94,11 +96,14 @@ class Follow(models.Model):
         verbose_name = "Подписка"
         verbose_name_plural = "Подписки"
         ordering = ("author",)
-        constraints = [
-            models.UniqueConstraint(
-                fields=['user', 'author'], name='unique_follow'
+        constraints = (
+            models.CheckConstraint(
+                check=~Q(user=F('author')), name='user_author_can_not_be_equal'
             ),
-        ]
+            models.UniqueConstraint(
+                fields=('user', 'author'), name='unique_follow'
+            ),
+        )
 
     def __str__(self):
         return f"{self.user} подписан на автора {self.author}"
