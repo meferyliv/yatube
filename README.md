@@ -8,11 +8,11 @@
 Клонировать репозиторий и перейти в него в командной строке:
 
 ```
-https://github.com/meferyliv/hw05_final.git
+https://github.com/meferyliv/yatube.git
 ```
 
 ```
-cd hw05_final
+cd yatube
 ```
 
 Cоздать и активировать виртуальное окружение:
